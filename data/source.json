@@ -1,0 +1,48 @@
+{
+  "commits": [
+    {
+      "id": "base",
+      "parents": [],
+      "rows": [
+        {
+          "row_id": "x",
+          "10": "tool",
+          "20": "ops",
+          "30": 1
+        }
+      ]
+    },
+    {
+      "id": "dev",
+      "parents": [
+        "base"
+      ],
+      "rows": [
+        {
+          "row_id": "x",
+          "10": "tool",
+          "20": "research",
+          "30": 1
+        }
+      ]
+    },
+    {
+      "id": "main",
+      "parents": [
+        "base"
+      ],
+      "rows": [
+        {
+          "row_id": "x",
+          "10": "tool",
+          "20": "ops",
+          "30": 2
+        }
+      ]
+    }
+  ],
+  "refs": {
+    "main": "main",
+    "dev": "dev"
+  }
+}
