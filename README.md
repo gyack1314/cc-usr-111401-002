@@ -1,6 +1,6 @@
 # 多租户湖表的零拷贝克隆与写隔离资料工具
 
-Python 3.11 项目，用于读取、保存及核对协作资料仓的本地资料。不可变内容通过 SHA256 寻址，目录引用单独保存。现有领域接口位于 warehouse/branches.py，资料契约见 docs/contracts.md，合成输入位于 data/source.json。warehouse/objects.py 负责内容校验，catalog.py 负责本地引用更新，snapshot.py 提供完整行快照基础读取。
+Python 3.11 项目，用于读取、保存及核对协作资料仓的本地资料。不可变内容通过 SHA256 寻址，目录引用单独保存。现有领域接口位于 warehouse/branches.py，资料契约见 docs/contracts.md，合成输入位于 data/source.json。warehouse/objects.py 负责内容校验与对象读写统计，catalog.py 负责本地引用更新，snapshot.py 提供完整行快照基础读取，tables.py 在对象与目录之上提供分块写时复制表、零拷贝克隆、读句柄与容量账（设计见 docs/clone.md，演示见 warehouse/demo.py）。
 
 已有读取流程使用临时目录，不改变源资料。当前只提供源码中已实现的基础操作，输出相应对象身份、行或引用摘要。领域接口的测试说明其现有边界，不承诺额外的管理或查询功能。
 
@@ -10,4 +10,5 @@ Python 3.11 项目，用于读取、保存及核对协作资料仓的本地资�
 python -m unittest discover -s tests -v
 python -m compileall -q warehouse tests
 python -m warehouse
+python -m warehouse.demo
 ```
