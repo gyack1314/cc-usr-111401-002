@@ -1,4 +1,4 @@
-# 协作湖表分支资料工具
+# 多租户湖表的零拷贝克隆与写隔离资料工具
 
 Python 3.11 项目，用于读取、保存及核对协作资料仓的本地资料。不可变内容通过 SHA256 寻址，目录引用单独保存。现有领域接口位于 warehouse/branches.py，资料契约见 docs/contracts.md，合成输入位于 data/source.json。warehouse/objects.py 负责内容校验，catalog.py 负责本地引用更新，snapshot.py 提供完整行快照基础读取。
 
